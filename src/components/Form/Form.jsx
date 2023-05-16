@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
+import css from './Form.module.css';
+import PropTypes from 'prop-types';
 
 export class Form extends Component {
   state = {
@@ -9,7 +11,6 @@ export class Form extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log('submit');
     const isContactExists = this.props.addContact({
       id: nanoid(6),
       ...this.state,
@@ -33,9 +34,10 @@ export class Form extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
+        <label className={css.label}>
           Name
           <input
+            className={css.input}
             onChange={this.handleChange}
             type="text"
             name="name"
@@ -45,9 +47,10 @@ export class Form extends Component {
             required
           ></input>
         </label>
-        <label>
+        <label className={css.label}>
           Number
           <input
+            className={css.input}
             onChange={this.handleChange}
             type="tel"
             name="number"
@@ -57,8 +60,12 @@ export class Form extends Component {
             required
           ></input>
         </label>
-        <button>Add contact</button>
+        <button className={css.button}>Add contact</button>
       </form>
     );
   }
 }
+
+Form.propTypes = {
+  addContact: PropTypes.func,
+};

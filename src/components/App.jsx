@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Section } from './Section/Section';
-import { Form } from './Foarm/Form';
+import { Form } from './Form/Form';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
 import toast, { Toaster } from 'react-hot-toast';
